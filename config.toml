@@ -131,6 +131,7 @@ weight = 400
 sort_by = ["label"]
 
 [kerko.templates]
+base = "kerkoapp/base.html.jinja2"
 layout = "kerkoapp/layout.html.jinja2"
 item = "kerkoapp/item.html.jinja2"
 
