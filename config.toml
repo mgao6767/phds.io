@@ -1,0 +1,139 @@
+# Sample config.toml file to show the most frequently used configuration parameters.
+
+BABEL_DEFAULT_LOCALE = "en_US"
+BABEL_DEFAULT_TIMEZONE = "UTC"
+
+# Most parameters have a default value. Deleting such parameter from this file
+# will not disable it but merely reset it to its default value.
+
+[kerko.features]
+
+download_attachment_new_window = false
+download_item = true
+download_results = true
+download_results_max_count = 0
+open_in_zotero_app = false
+open_in_zotero_web = false
+print_item = true
+print_results = true
+print_results_max_count = 0
+relations_links = false
+relations_initial_limit = 5
+relations_sort = "author_asc"
+results_abstracts = true
+results_abstracts_max_length = 0
+results_abstracts_max_length_leeway = 0
+results_abstracts_toggler = true
+results_attachment_links = false
+results_url_links = true
+
+[kerko.feeds]
+
+formats = ["atom"]
+fields = ["id", "data"]
+max_days = 0
+
+[kerko.meta]
+
+title = "PhDs.io"
+highwirepress_tags = true
+google_analytics_id = ""
+
+[kerko.pagination]
+
+page_len = 10
+pager_links = 5
+
+[kerko.breadcrumb]
+
+enabled = true
+include_current = true
+text_max_length = 50
+text_max_length_leeway = 10
+
+[kerko.link_groups]
+
+[[kerko.link_groups.navbar]]
+text = "Finance Papers"
+type = "endpoint"
+endpoint = "kerko.search"
+
+# [[kerko.link_groups.navbar]]
+# text = "Mingze Gao"
+# type = "url"
+# url = "https://mingze-gao.com"
+
+[[kerko.link_groups.breadcrumb_base]]
+text = "PhDs.io"
+type = "url"
+url = "https://phds.io"
+
+[[kerko.link_groups.breadcrumb_base]]
+text = "Papers"
+type = "endpoint"
+endpoint = "kerko.search"
+
+[kerko.zotero]
+
+# csl_style = "apa"
+csl_style = "apa-no-doi-no-issue"
+locale = "en-US"
+item_include_re = '_included_in_phds.io'
+item_exclude_re = ''
+child_include_re = ''
+child_exclude_re = '^_'
+attachment_mime_types = ["application/pdf"]
+tag_include_re = ''
+tag_exclude_re = '^_'
+
+[kerko.search]
+
+fulltext = true
+whoosh_language = "en"
+
+
+[kerko.facets]
+
+[kerko.facets.journals]
+enabled = true
+type = "collection"
+collection_key = "XHLGK9FB"
+filter_key = "journals"
+title = "Journals"
+weight = 50
+initial_limit = 10
+initial_limit_leeway = 2
+
+[kerko.facets.tag]
+enabled = false
+weight = 100
+initial_limit = 10
+initial_limit_leeway = 2
+sort_by = ["label"]
+
+[kerko.facets.item_type]
+enabled = true
+weight = 200
+initial_limit = 0
+initial_limit_leeway = 2
+sort_by = ["label"]
+
+[kerko.facets.year]
+enabled = true
+weight = 300
+initial_limit = 0
+initial_limit_leeway = 2
+sort_by = ["label"]
+
+[kerko.facets.link]
+enabled = false
+weight = 400
+sort_by = ["label"]
+
+[kerko.templates]
+layout = "kerkoapp/layout.html.jinja2"
+item = "kerkoapp/item.html.jinja2"
+
+# My own config
+[custom]
+show_document = false
