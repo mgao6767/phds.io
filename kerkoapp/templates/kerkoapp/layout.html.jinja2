@@ -68,12 +68,15 @@
                 <div {% block main_inner_attributes %}class="row"{% endblock %}>
                     {%- block content %}
                         <div {% block content_attributes %}class="col-12 {% if self.sidebar_inner() %}col-lg-8 order-lg-4{% endif %}"{% endblock %}>
-                            <p><strong>A fast and targeted literature search engine</strong> based on top-quality journals</p>
+                            <p><strong>A Fast Literature Search Engine</strong> based on top-quality journals,
+                            by Dr. <a href="https://mingze-gao.com">Mingze Gao</a>.</p>
+                            <small>
+                            <ul>
+                                <li>Topic classification is ongoing.</li>
+                                <li>Please kindly let me know [<a href="mailto:mingze.gao@sydney.edu.au">mingze.gao@sydney.edu.au</a>] in case of any errors.</li>
+                            </ul>
+                            </small>
                             <hr>
-                            <p><small>
-                            Oct 25, 2023: RFS's RePEc data contains many errors: wrong title/year/url, sometimes listing the Editor as an author, etc.
-                            I'm doing my best to correct them. Please double check before citing, and <a href="mailto:mingze.gao@sydney.edu.au">kindly let me know</a> if you find errors.
-                            </small></p>
                             {%- block content_header %}
                                 <div class="row">
                                     <div class="col">
