@@ -138,6 +138,7 @@ sort_by = ["label"]
 base = "kerkoapp/base.html.jinja2"
 layout = "kerkoapp/layout.html.jinja2"
 item = "kerkoapp/item.html.jinja2"
+search = "kerkoapp/search.html.jinja2"
 
 # My own config
 [custom]
