@@ -1,7 +1,7 @@
 # Sample config.toml file to show the most frequently used configuration parameters.
 
 BABEL_DEFAULT_LOCALE = "en_US"
-BABEL_DEFAULT_TIMEZONE = "UTC"
+BABEL_DEFAULT_TIMEZONE = "Australia/Sydney"
 
 # Most parameters have a default value. Deleting such parameter from this file
 # will not disable it but merely reset it to its default value.
@@ -11,7 +11,7 @@ BABEL_DEFAULT_TIMEZONE = "UTC"
 download_attachment_new_window = false
 download_item = true
 download_results = true
-download_results_max_count = 0
+download_results_max_count = 100
 open_in_zotero_app = false
 open_in_zotero_web = false
 print_item = true
