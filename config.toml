@@ -37,7 +37,7 @@ max_days = 0
 
 title = "PhDs.io"
 highwirepress_tags = true
-google_analytics_id = ""
+google_analytics_id = "G-TFJCZ2EWMZ"
 
 [kerko.pagination]
 
@@ -73,6 +73,10 @@ text = "Papers"
 type = "endpoint"
 endpoint = "kerko.search"
 
+[kerko.performance]
+whoosh_index_memory_limit = 32
+whoosh_index_processors = 4
+
 [kerko.zotero]
 
 # csl_style = "apa"
@@ -83,7 +87,7 @@ item_exclude_re = ''
 child_include_re = ''
 child_exclude_re = '^_'
 attachment_mime_types = ["application/pdf"]
-tag_include_re = ''
+tag_include_re = '-topic-(.*)'
 tag_exclude_re = '^_'
 
 [kerko.search]
@@ -105,11 +109,11 @@ initial_limit = 10
 initial_limit_leeway = 2
 
 [kerko.facets.tag]
-enabled = false
+enabled = true
 weight = 100
 initial_limit = 10
 initial_limit_leeway = 2
-sort_by = ["label"]
+sort_by = ["count"]
 
 [kerko.facets.item_type]
 enabled = true
