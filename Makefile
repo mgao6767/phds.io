@@ -18,6 +18,30 @@ DATA := $(HOST_INSTANCE_PATH)/kerko/index
 # These work if the image exists, either pulled or built locally.
 #
 
+help:
+	@echo "Commands for using KerkoApp with Docker:"
+	@echo "    make build"
+	@echo "        Build a KerkoApp Docker image locally."
+	@echo "    make clean_image"
+	@echo "        Remove the KerkoApp Docker image."
+	@echo "    make clean_kerko"
+	@echo "        Run the 'kerko clean' command from within the KerkoApp Docker container."
+	@echo "    make publish"
+	@echo "        Publish the KerkoApp Docker image on DockerHub."
+	@echo "    make run"
+	@echo "        Run KerkoApp with Docker."
+	@echo "    make shell"
+	@echo "        Start an interactive shell within the KerkoApp Docker container."
+	@echo "    make show_version"
+	@echo "        Print the version that would be used if the KerkoApp Docker image was to be built."
+	@echo "\nCommands related to KerkoApp development:"
+	@echo "    make dependencies-upgrade"
+	@echo "        Update Python dependencies and pin their latest versions in requirements files."
+	@echo "    make requirements"
+	@echo "        Pin the versions of Python dependencies in requirements files."
+	@echo "    make upgrade"
+	@echo "        Update Python dependencies and install the upgraded versions."
+
 run: | $(DATA) $(SECRETS) $(CONFIG)
 	docker run --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(NAME)
 
@@ -88,4 +112,25 @@ endif
 	@echo "[ERROR] This target must run from a clone of the KerkoApp Git repository."
 	@exit 1
 
-.PHONY: run shell clean_kerko publish build show_version clean_image
+requirements/run.txt: requirements/run.in
+	pip-compile --resolver=backtracking requirements/run.in
+
+requirements/docker.txt: requirements/run.txt requirements/docker.in
+	pip-compile --resolver=backtracking requirements/docker.in
+
+requirements/dev.txt: requirements/run.txt requirements/dev.in
+	pip-compile --allow-unsafe --resolver=backtracking requirements/dev.in
+
+requirements: requirements/run.txt requirements/docker.txt requirements/dev.txt
+
+dependencies-upgrade:
+	pre-commit autoupdate
+	pip install --upgrade pip pip-tools wheel
+	pip-compile --upgrade --resolver=backtracking --rebuild requirements/run.in
+	pip-compile --upgrade --resolver=backtracking --rebuild requirements/docker.in
+	pip-compile --upgrade --allow-unsafe --resolver=backtracking --rebuild requirements/dev.in
+
+upgrade: | dependencies-upgrade
+	pip-sync requirements/dev.txt
+
+.PHONY: help run shell clean_kerko publish build show_version clean_image requirements dependencies-upgrade upgrade
