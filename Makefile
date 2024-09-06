@@ -1,8 +1,9 @@
 # This Makefile contains targets for building and running the KerkoApp Docker image.
 
-# Change NAME if you wish to build your own image.
-NAME := whiskyechobravo/kerkoapp
+# Change IMAGE_NAME if you wish to build your own image.
+IMAGE_NAME := whiskyechobravo/kerkoapp
 
+CONTAINER_NAME := kerkoapp
 MAKEFILE_DIR := $(dir $(CURDIR)/$(lastword $(MAKEFILE_LIST)))
 HOST_PORT := 8080
 HOST_INSTANCE_PATH := $(MAKEFILE_DIR)instance
@@ -35,25 +36,29 @@ help:
 	@echo "    make show_version"
 	@echo "        Print the version that would be used if the KerkoApp Docker image was to be built."
 	@echo "\nCommands related to KerkoApp development:"
-	@echo "    make dependencies-upgrade"
-	@echo "        Update Python dependencies and pin their latest versions in requirements files."
 	@echo "    make requirements"
 	@echo "        Pin the versions of Python dependencies in requirements files."
+	@echo "    make requirements-upgrade"
+	@echo "        Pin the latest versions of Python dependencies in requirements files."
 	@echo "    make upgrade"
 	@echo "        Update Python dependencies and install the upgraded versions."
 
+# On some systems, extended privileges are required for Gunicorn to launch within the container,
+# hence the use of the --privileged option below. For production use, you may want to verify whether
+# this option is really required for your system, or grant finer grained privileges. See
+# https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities
 run: | $(DATA) $(SECRETS) $(CONFIG)
-	docker run --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(NAME)
+	docker run --privileged --name $(CONTAINER_NAME) --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(IMAGE_NAME)
 
 shell:
-	docker run -it --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(NAME) bash
+	docker run --name $(CONTAINER_NAME) -it --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(IMAGE_NAME) bash
 
 clean_kerko: | $(SECRETS) $(CONFIG)
-	docker run --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(NAME) flask kerko clean everything
+	docker run --name $(CONTAINER_NAME) --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(IMAGE_NAME) flask kerko clean everything
 
 $(DATA): | $(SECRETS) $(CONFIG)
 	@echo "[INFO] It looks like you have not run the 'flask kerko sync' command. Running it for you now!"
-	docker run --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(NAME) flask kerko sync
+	docker run --name $(CONTAINER_NAME) --rm -p $(HOST_PORT):80 -v $(HOST_INSTANCE_PATH):/kerkoapp/instance -v $(HOST_DEV_LOG):/dev/log $(IMAGE_NAME) flask kerko sync
 
 $(SECRETS):
 	@echo "[ERROR] You must create '$(SECRETS)'."
@@ -78,10 +83,10 @@ ifneq ($(shell git status --porcelain 2> /dev/null),)
 	@exit 1
 endif
 ifeq ($(findstring .,$(VERSION)),.)
-	docker tag $(NAME) $(NAME):$(VERSION)
-	docker push $(NAME):$(VERSION)
-	docker tag $(NAME) $(NAME):latest
-	docker push $(NAME):latest
+	docker tag $(IMAGE_NAME) $(IMAGE_NAME):$(VERSION)
+	docker push $(IMAGE_NAME):$(VERSION)
+	docker tag $(IMAGE_NAME) $(IMAGE_NAME):latest
+	docker push $(IMAGE_NAME):latest
 else
 	@echo "[ERROR] A proper version tag on the Git HEAD is required to publish."
 	@exit 1
@@ -89,9 +94,9 @@ endif
 
 build: | .git
 ifeq ($(findstring .,$(VERSION)),.)
-	docker build -t $(NAME) --no-cache --label "org.opencontainers.NAME.version=$(VERSION)" --label "org.opencontainers.NAME.created=$(shell date --rfc-3339=seconds)" $(MAKEFILE_DIR)
+	docker build -t $(IMAGE_NAME) --no-cache --label "org.opencontainers.image.version=$(VERSION)" --label "org.opencontainers.image.created=$(shell date --rfc-3339=seconds)" $(MAKEFILE_DIR)
 else
-	docker build -t $(NAME) --no-cache --label "org.opencontainers.NAME.version=$(HASH)" --label "org.opencontainers.NAME.created=$(shell date --rfc-3339=seconds)" $(MAKEFILE_DIR)
+	docker build -t $(IMAGE_NAME) --no-cache --label "org.opencontainers.image.revision=$(HASH)" --label "org.opencontainers.image.created=$(shell date --rfc-3339=seconds)" $(MAKEFILE_DIR)
 endif
 
 show_version: | .git
@@ -103,9 +108,9 @@ endif
 
 clean_image: | .git
 ifeq ($(findstring .,$(VERSION)),.)
-	docker rmi $(NAME):$(VERSION)
+	docker rmi $(IMAGE_NAME):$(VERSION)
 else
-	docker rmi $(NAME)
+	docker rmi $(IMAGE_NAME)
 endif
 
 .git:
@@ -123,14 +128,14 @@ requirements/dev.txt: requirements/run.txt requirements/dev.in
 
 requirements: requirements/run.txt requirements/docker.txt requirements/dev.txt
 
-dependencies-upgrade:
+requirements-upgrade:
 	pre-commit autoupdate
-	pip install --upgrade pip pip-tools wheel
+	pip install --upgrade pip pip-tools
 	pip-compile --upgrade --resolver=backtracking --rebuild requirements/run.in
 	pip-compile --upgrade --resolver=backtracking --rebuild requirements/docker.in
 	pip-compile --upgrade --allow-unsafe --resolver=backtracking --rebuild requirements/dev.in
 
-upgrade: | dependencies-upgrade
+upgrade: | requirements-upgrade
 	pip-sync requirements/dev.txt
 
-.PHONY: help run shell clean_kerko publish build show_version clean_image requirements dependencies-upgrade upgrade
+.PHONY: help run shell clean_kerko publish build show_version clean_image requirements requirements-upgrade upgrade
