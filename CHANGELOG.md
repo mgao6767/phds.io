@@ -1,12 +1,39 @@
 # Changelog
 
-## Unreleased
+Before doing an upgrade, please check the "How to upgrade" section of the Kerko
+documentation.
+
+## 1.2.0 (2024-08-03)
+
+New features:
+
+- Add sample configuration for the "Resource language" facet.
 
 Other changes:
 
-- Add `help`, `requirements`, `dependencies-upgrade`, and `upgrade` targets to
+- Adapt KerkoApp for Kerko API changes.
+
+
+## 1.1.0 (2023-12-23)
+
+Features:
+
+- Add Spanish translation. Thanks to [Albert
+  Ormazabal](https://github.com/aormazabal).
+
+Bug fixes:
+
+- Fix incorrect Docker image labels.
+- Fix Docker run error, container lacking sufficient privileges (#43).
+
+Other changes:
+
+- Add `help`, `requirements`, `requirements-upgrade`, and `upgrade` targets to
   `Makefile`. These are helpers for KerkoApp development.
+- Replace Yapf with Ruff formatter. Reformat whole code base.
 - Add pre-commit hooks. Run Ruff and other code checks on pre-commit.
+- Update the versions of pinned dependencies.
+- Set container name on docker run.
 
 
 ## 1.0.0 (2023-07-24)
