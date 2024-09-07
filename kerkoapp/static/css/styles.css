@@ -1,0 +1,146 @@
+.navbar-brand {
+  display: none;
+}
+.navbar {
+  padding: 0;
+}
+.nav-item {
+  padding-inline: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  background-color: #76232f;
+}
+.nav-item .nav-link {
+  color: #edebe5 !important;
+}
+.nav-item.active {
+  background-color: #a6192e;
+}
+.nav-item:not(.active):hover {
+  background-color: #a6192e;
+}
+
+header {
+  background-color: #edebe5; /* MQ Light sand */
+  background-color: #fff;
+}
+
+body {
+  background-color: #f5f5f6; /* MQ Light grey*/
+  background-color: #edebe5; /* MQ Light sand */
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+}
+
+.bg-dark {
+  background-color: rgba(
+    55,
+    58,
+    54,
+    0.99
+  ) !important; /* MQ Charcoal with reduced transparency */
+}
+
+.badge-light {
+  background-color: #f5f5f6;
+}
+
+.card {
+  color: #454545;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid #00000020;
+  border-radius: 0;
+  flex-direction: column;
+  min-width: 0;
+  display: flex;
+  position: relative;
+  margin-bottom: 1.5rem !important;
+  box-shadow: 0 3px 4px #0000001a;
+}
+
+.search-item a:not(.btn-link) {
+  color: #373a36; /* MQ Charcoal */
+}
+.search-item p.search-abstract {
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #76232f; /* MQ Deep red */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #a6192e; /* MQ Red */
+}
+
+.btn-danger {
+  background-color: #a6192e; /* MQ Red */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-danger:hover {
+  background-color: #d6001c; /* MQ Bright red */
+}
+
+#facets-container li a {
+  color: #3048bf;
+}
+.btn-link {
+  color: #3048bf;
+}
+
+a {
+  color: #3048bf;
+}
+footer.bg-dark.text-white {
+  color: #d6d2c4 !important;
+}
+footer a {
+  color: #a6192e;
+  color: #edebe5;
+}
+footer a:hover {
+  color: #d6001c;
+}
+
+.btn-light {
+  background-color: #d6d2c4; /* MQ Sand */
+  /* background-color: #edebe5; MQ Sand light */
+  border-color: #373a36;
+}
+.btn-light:hover {
+  background-color: #edebe5; /* MQ Sand light */
+  border-color: #373a36;
+}
+
+.pagination .page-item .page-link {
+  color: #373a36; /* MQ Charcoal */
+}
+.pagination .page-item.active .page-link {
+  color: #373a36; /* MQ Charcoal */
+  background-color: #d6d2c4; /* MQ Sand */
+  border-color: #373a36;
+}
+
+.dropdown-item.active {
+  color: #373a36; /* MQ Charcoal */
+  background-color: #edebe5; /* MQ Sand light */
+  border-color: #373a36;
+}
+
+.fa-chevron-right {
+  color: #3048bf;
+}

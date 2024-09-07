@@ -1,4 +1,5 @@
-# Sample config.toml file to show the most frequently used configuration parameters.
+ZOTERO_LIBRARY_ID = "5650543"
+ZOTERO_LIBRARY_TYPE = "group"
 
 BABEL_DEFAULT_LOCALE = "en_US"
 BABEL_DEFAULT_TIMEZONE = "Australia/Sydney"
@@ -29,14 +30,13 @@ results_url_links = true
 
 [kerko.feeds]
 
-formats = ["atom"]
+formats = []
 fields = ["id", "data"]
 max_days = 0
 
 [kerko.meta]
 
 title = "PhDs.io"
-highwirepress_tags = true
 google_analytics_id = "G-TFJCZ2EWMZ"
 
 [kerko.pagination]
@@ -51,27 +51,27 @@ include_current = true
 text_max_length = 50
 text_max_length_leeway = 10
 
+[kerko.pages.about]
+path = "/about"
+item_id = "ZA29MBVM"
+title = "About"
+
 [kerko.link_groups]
 
 [[kerko.link_groups.navbar]]
-text = "Finance Papers"
+text = "Home"
 type = "endpoint"
 endpoint = "kerko.search"
 
-# [[kerko.link_groups.navbar]]
-# text = "Mingze Gao"
-# type = "url"
-# url = "https://mingze-gao.com"
+[[kerko.link_groups.navbar]]
+type = "page"
+page = "about"
+text = "About"
 
 [[kerko.link_groups.breadcrumb_base]]
-text = "PhDs.io"
+text = "phds.io"
 type = "url"
-url = "https://phds.io"
-
-[[kerko.link_groups.breadcrumb_base]]
-text = "Papers"
-type = "endpoint"
-endpoint = "kerko.search"
+url = "/"
 
 [kerko.performance]
 whoosh_index_memory_limit = 32
@@ -82,13 +82,13 @@ whoosh_index_processors = 4
 # csl_style = "apa"
 csl_style = "apa-no-doi-no-issue"
 locale = "en-US"
-item_include_re = '_included_in_phds.io'
+item_include_re = ''
 item_exclude_re = ''
 child_include_re = ''
 child_exclude_re = '^_'
 attachment_mime_types = ["application/pdf"]
-tag_include_re = '-topic-(.*)'
-tag_exclude_re = '^_'
+tag_include_re = ''
+tag_exclude_re = ''
 
 [kerko.search]
 
@@ -101,22 +101,22 @@ whoosh_language = "en"
 [kerko.facets.journals]
 enabled = true
 type = "collection"
-collection_key = "XHLGK9FB"
-filter_key = "journals"
+collection_key = "ZT72UUC6"
+filter_key = "journal"
 title = "Journals"
 weight = 50
 initial_limit = 10
 initial_limit_leeway = 2
 
 [kerko.facets.tag]
-enabled = true
+enabled = false
 weight = 100
 initial_limit = 10
 initial_limit_leeway = 2
 sort_by = ["count"]
 
 [kerko.facets.item_type]
-enabled = true
+enabled = false
 weight = 200
 initial_limit = 0
 initial_limit_leeway = 2
@@ -125,13 +125,8 @@ sort_by = ["label"]
 [kerko.facets.year]
 enabled = true
 weight = 300
-initial_limit = 0
+initial_limit = 5
 initial_limit_leeway = 2
-sort_by = ["label"]
-
-[kerko.facets.link]
-enabled = false
-weight = 400
 sort_by = ["label"]
 
 [kerko.templates]
@@ -142,4 +137,6 @@ search = "kerkoapp/search.html.jinja2"
 
 # My own config
 [custom]
+# DO NOT DISPLAY PDF!!!
 show_document = false
+show_macquarie_logo = false
