@@ -8,8 +8,6 @@ import kerko
 from flask import Flask, render_template
 from flask_babel import get_locale
 from kerko.config_helpers import config_update, parse_config
-import markdown
-from markupsafe import Markup
 
 from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
@@ -56,16 +54,10 @@ def create_app() -> Flask:
     register_blueprints(app)
     register_errorhandlers(app)
 
-    # README to be displayed as About page at /about
-    readme_path = os.path.join(app.root_path, "../README.md")
-    with open(readme_path, "r", encoding="utf-8") as f:
-        readme_content = f.read()
-    readme_html = Markup(markdown.markdown(readme_content))
-
     # Custom route for the "About" page
     @app.route("/about")
     def about():
-        return render_template("kerkoapp/about.html.jinja2", readme_html=readme_html)
+        return render_template("kerkoapp/about.html.jinja2")
 
     return app
 

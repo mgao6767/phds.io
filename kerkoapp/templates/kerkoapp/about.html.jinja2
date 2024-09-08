@@ -14,7 +14,48 @@
 {%- endblock content_header %}
 
 {%- block content_inner %}
-    <div class="card px-3 py-2">
-        {{ readme_html | safe }}
+    <h2>About</h2>
+    <div class="card px-3 pt-3">
+        <p><a href="https://phds.io">PhDs.io</a> is a platform created to support research students and academics as they navigate the vast and sometimes overwhelming body of literature in the fields of finance, accounting, and related areas. Our goal is simple: <strong>to make high-quality research more accessible and easier to explore</strong>.</p>
+
+        <p>This project is developed by Dr. <a href="https://mingze-gao.com">Mingze Gao</a> from the Department of Applied Finance at Macquarie Business School, initiated when he was a postdoctoral research fellow at the University of Sydney Business School.
+
+        <p>At PhDs.io, we have committed ourselves to carefully collecting, cleaning, and organizing references from reputable sources. We aim to provide a streamlined experience for users who are looking to deepen their knowledge, explore new areas of research, or simply stay up to date with the latest advancements.</p>
+
+        <p>Whether you're a PhD student at the beginning of your academic journey or an established scholar, we hope you find this site to be a helpful companion. The path of research can be challenging, and we’re here to offer a bit of support along the way.</p>
+    </div>
+
+    <h3>Maintainers</h3>
+    <div class="card px-3 pt-3">
+        <p>This site is collectively maintained by:</p>
+
+        <ol>
+        <li><a href="https://mingze-gao.com">Mingze (Adrian) Gao</a>, Macquarie University.</li>
+        <li>Haocheng (James) Xu, University of Iowa.</li>
+        </ol>
+
+        <p><em><strong>If you would like to join this effort, please kindly let me know.</strong></em></p>
+    </div>
+
+    <h3>Technology</h3>
+    <div class="card px-3 pt-3">
+        <p><a href="https://phds.io">PhDs.io</a> is built with <a href="https://github.com/whiskyechobravo/kerkoapp">KerkoApp</a>, a web application that uses <a href="https://github.com/whiskyechobravo/kerko">Kerko</a> to provide a user-friendly search and browsing interface for sharing a bibliography managed with the <a href="https://www.zotero.org/">Zotero</a> reference manager.</p>
+
+        <p>KerkoApp is built in <a href="https://www.python.org/">Python</a> with the <a href="https://pypi.org/project/Flask/">Flask</a> framework. It is just a thin container around Kerko and, as such, inherits most of its features directly from Kerko. However, it adds support for <a href="https://toml.io/">TOML</a> configuration files, allowing a good separation of configuration from code.</p>
+    </div>
+
+    <h3>Copyright</h3>
+    <div class="card px-3 pt-3">
+        <p>The research papers and other materials featured on this site remain the intellectual property of their respective authors and publishers. PhDs.io merely collects and organizes publicly available information to assist researchers in navigating the literature. We do not host or distribute the full-text versions of any papers without the appropriate permissions.</p>
+    </div>
+
+    <h3>Support</h3>
+    <div class="card px-3 pt-3">
+        <p>PhDs.io is currently financially supported by Dr. Mingze Gao, ensuring the platform remains free and accessible to the research community. As we continue to grow and enhance the platform, we welcome contributions from individuals or organizations who share our vision of supporting research and education.</p>
+    </div>
+
+    <h3>Contact</h3>
+    <div class="card px-3 pt-3">
+        <p>If you identify any issue, please contact <a href="mailto:mingze.gao@mq.edu.au">mingze.gao@mq.edu.au</a>.</p>
     </div>
 {%- endblock content_inner %}

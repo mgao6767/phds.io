@@ -64,7 +64,7 @@ type = "url"
 url = "/about"
 
 [[kerko.link_groups.breadcrumb_base]]
-text = "phds.io"
+text = "PhDs.io"
 type = "url"
 url = "/"
 
