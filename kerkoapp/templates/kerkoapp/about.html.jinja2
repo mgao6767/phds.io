@@ -1,0 +1,20 @@
+{%- set title = _("About") %}
+{%- extends config.kerko.templates.layout %}
+
+{%- block navbar_items %}
+    {% for item in config.kerko_composer.link_groups.navbar.get_ordered_links() %}
+    <li class="nav-item {% if item.url == "/about" %}active{% endif %}">
+        <a class="nav-link" href="{{ item.url }}" {% if item.new_window %}target="_blank" rel="noopener"{% endif %}>{{ item.text }}</a>
+    </li>
+    {% endfor %}
+{%- endblock navbar_items %}
+
+{# This empty block removes the h1 title from the page, thereby using README title. #}
+{%- block content_header %}
+{%- endblock content_header %}
+
+{%- block content_inner %}
+    <div class="card px-3 py-2">
+        {{ readme_html | safe }}
+    </div>
+{%- endblock content_inner %}

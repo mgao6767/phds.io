@@ -51,11 +51,6 @@ include_current = true
 text_max_length = 50
 text_max_length_leeway = 10
 
-[kerko.pages.about]
-path = "/about"
-item_id = "ZA29MBVM"
-title = "About"
-
 [kerko.link_groups]
 
 [[kerko.link_groups.navbar]]
@@ -64,9 +59,9 @@ type = "endpoint"
 endpoint = "kerko.search"
 
 [[kerko.link_groups.navbar]]
-type = "page"
-page = "about"
 text = "About"
+type = "url"
+url = "/about"
 
 [[kerko.link_groups.breadcrumb_base]]
 text = "phds.io"
