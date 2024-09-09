@@ -4,19 +4,19 @@
 .navbar {
   padding: 0;
 }
-.nav-item {
+nav .nav-item {
   padding-inline: 0.5em;
   padding-top: 0.1em;
   padding-bottom: 0.1em;
   background-color: #76232f;
 }
-.nav-item .nav-link {
+nav .nav-item .nav-link {
   color: #edebe5 !important;
 }
-.nav-item.active {
+nav .nav-item.active {
   background-color: #a6192e;
 }
-.nav-item:not(.active):hover {
+nav .nav-item:not(.active):hover {
   background-color: #a6192e;
 }
 
