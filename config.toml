@@ -144,4 +144,7 @@ search = "kerkoapp/search.html.jinja2"
 [custom]
 # DO NOT DISPLAY PDF!!!
 show_document = false
+# Show Open Access, however.
+show_open_access = true
+open_access_tag = "[Open Access]"
 show_macquarie_logo = false
