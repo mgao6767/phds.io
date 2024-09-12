@@ -103,6 +103,16 @@ weight = 50
 initial_limit = 10
 initial_limit_leeway = 2
 
+[kerko.facets.rankings]
+enabled = true
+type = "collection"
+collection_key = "Z76F9NJW"
+filter_key = "ranking"
+title = "Ranking"
+weight = 65
+initial_limit = 10
+initial_limit_leeway = 2
+
 [kerko.facets.tag]
 enabled = true
 weight = 100
