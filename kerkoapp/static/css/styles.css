@@ -54,6 +54,16 @@ body {
   ) !important; /* MQ Charcoal with reduced transparency */
 }
 
+.badge-phdsio {
+  color: white;
+}
+.badge-phdsio.badge-ranking {
+  background-color: #009174;
+}
+.badge-phdsio.badge-open-access {
+  background-color: #bc4700;
+}
+
 .badge-light {
   background-color: #f5f5f6;
 }

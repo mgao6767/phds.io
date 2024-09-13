@@ -141,10 +141,15 @@ item = "kerkoapp/item.html.jinja2"
 search = "kerkoapp/search.html.jinja2"
 
 # My own config
+# These must be defined.
 [custom]
+show_macquarie_logo = false
 # DO NOT DISPLAY PDF!!!
 show_document = false
 # Show Open Access, however.
 show_open_access = true
 open_access_tag = "[Open Access]"
-show_macquarie_logo = false
+# Ranking tags
+ft50_tag = "[Ranking] FT50"
+utd24_tag = "[Ranking] UTD24"
+abdc_tag = "[Ranking] ABDC-A*" # Only tag A*

@@ -13,6 +13,8 @@ from . import logging
 from .config_helpers import KerkoAppModel, load_config_files
 from .extensions import babel, bootstrap
 
+from .badges import add_badges
+
 
 def create_app() -> Flask:
     """
@@ -49,6 +51,7 @@ def create_app() -> Flask:
     # If you are deriving your own custom application from KerkoApp, here is a
     # good place to alter the Composer object, perhaps adding facets.
     # ----
+    add_badges(app.config["kerko_composer"])
 
     register_extensions(app)
     register_blueprints(app)
