@@ -18,20 +18,27 @@
 {%- endblock navbar_content %}
 
 {%- block header_inner %}
-    {%- if config.custom.show_macquarie_logo %}
-        {%- block phdsio_header %}
+    {%- block phdsio_header %}
+        {%- if config.custom.show_macquarie_logo %}
+            <div class="container d-print-none">
+                <div class="header-phdsio pt-2 pb-2 d-flex flex-column flex-md-row justify-content-between">
+                    <a href="https://www.mq.edu.au/" title="Macquarie University">
+                        <img src="{{ url_for('static', filename='images/MQ-logo-transparent.png') }}" height="66" alt="Logo of Macquarie University">
+                    </a>
+                    <a class="d-none d-md-block" href="https://www.mq.edu.au/macquarie-business-school" title="Macquarie Business School">
+                        <img src="{{ url_for('static', filename='images/MQBS-logo-transparent.png') }}"  height="66" alt="Logo of Macquarie Business School">
+                    </a>
+                </div>
+            </div>
+        {%- endif %}
         <div class="container d-print-none">
             <div class="header-phdsio pt-2 pb-2 d-flex flex-column flex-md-row justify-content-between">
-                <a href="https://www.mq.edu.au/" title="Macquarie University">
-                    <img src="{{ url_for('static', filename='images/MQ-logo-transparent.png') }}" height="66" alt="Logo of Macquarie University">
-                </a>
-                <a class="d-none d-md-block" href="https://www.mq.edu.au/macquarie-business-school" title="Macquarie Business School">
-                    <img src="{{ url_for('static', filename='images/MQBS-logo-transparent.png') }}"  height="66" alt="Logo of Macquarie Business School">
+                <a href="/" title="PhDs.io">
+                    <img src="{{ url_for('static', filename='images/logo-no-background.png') }}" height="66" alt="Logo of phds.io">
                 </a>
             </div>
         </div>
-        {%- endblock phdsio_header %}
-    {%- endif %}
+    {%- endblock phdsio_header %}
     {{- super() }}
 {%- endblock header_inner %}
 
