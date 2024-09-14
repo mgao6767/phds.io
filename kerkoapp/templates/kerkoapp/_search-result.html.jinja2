@@ -1,0 +1,17 @@
+{% extends "kerko/_search-result.html.jinja2" %}
+
+{%- block search_item_display %}
+    <div class="d-flex">
+        <a class="{% block search_item_classes %}d-block mw-100 mr-auto{% endblock %}" href="{{ result_url }}" title="{{ _('View details') }}">
+            {%- block search_item_formatted_display %}
+                {{- result.bib|safe -}}
+            {%- endblock search_item_formatted_display %}
+        </a>
+        {%- if result.coins %}
+            {{- result.coins|safe -}}
+        {%- endif %}
+    </div>
+    <div class="d-flex">
+        {{- badges(result, mode='result') -}}
+    </div>
+{%- endblock search_item_display %}
