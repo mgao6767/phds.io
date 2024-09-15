@@ -14,6 +14,7 @@ from .config_helpers import KerkoAppModel, load_config_files
 from .extensions import babel, bootstrap
 
 from .badges import add_badges
+from .flash_message import load_flash_message
 
 
 def create_app() -> Flask:
@@ -52,6 +53,10 @@ def create_app() -> Flask:
     # good place to alter the Composer object, perhaps adding facets.
     # ----
     add_badges(app.config["kerko_composer"])
+
+    if app.config["custom"].get("show_flash_message"):
+        msg_path = app.config["custom"].get("flash_message_path", "")
+        load_flash_message(app, msg_path, url_path="/papers/")
 
     register_extensions(app)
     register_blueprints(app)

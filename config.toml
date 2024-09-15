@@ -153,3 +153,6 @@ open_access_tag = "[Open Access]"
 ft50_tag = "[Ranking] FT50"
 utd24_tag = "[Ranking] UTD24"
 abdc_tag = "[Ranking] ABDC-A*" # Only tag A*
+# Flash message / Announcement
+show_flash_message = true
+flash_message_path = "flash_message.txt"
