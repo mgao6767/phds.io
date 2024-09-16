@@ -41,7 +41,7 @@ google_analytics_id = "G-TFJCZ2EWMZ"
 
 [kerko.pagination]
 
-page_len = 10
+page_len = 7
 pager_links = 5
 
 [kerko.breadcrumb]

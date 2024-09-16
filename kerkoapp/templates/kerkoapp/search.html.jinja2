@@ -1,5 +1,7 @@
 {% extends "kerko/search.html.jinja2" %}
 
+{% set title = "" %}
+
 {%- block search_results_list %}
     <ul class="mb-4 list-unstyled {% if print_preview %}search-print-preview{% endif %}">
         {%- for result, result_url in search_results %}
