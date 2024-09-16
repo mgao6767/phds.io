@@ -113,6 +113,16 @@ weight = 65
 initial_limit = 10
 initial_limit_leeway = 2
 
+[kerko.facets.oa]
+enabled = true
+type = "collection"
+collection_key = "JKQ8PAV4"
+filter_key = "oa"
+title = "Open Access"
+weight = 75
+initial_limit = 10
+initial_limit_leeway = 2
+
 [kerko.facets.tag]
 enabled = true
 weight = 100

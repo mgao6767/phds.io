@@ -1,7 +1,9 @@
 {% extends "kerko/item.html.jinja2" %}
 
 {% set oa_tag = {'tag': config.custom.open_access_tag} %}
-{% set show_oa = oa_tag in item.data.tags and config.custom.show_open_access %}
+{% set oa_tag_type1 = {'tag': config.custom.open_access_tag, 'type': 1} %}
+{% set oa_tag_type2 = {'tag': config.custom.open_access_tag, 'type': 2} %}
+{% set show_oa = (oa_tag in item.data.tags or oa_tag_type1 in item.data.tags or oa_tag_type2 in item.data.tags) and config.custom.show_open_access %}
 
 {%- block item_actions %}
     {%- with show_download_link = (config.kerko.features.download_item and config.kerko_composer.bib_formats) %}

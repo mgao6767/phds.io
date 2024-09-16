@@ -18,7 +18,9 @@
 
 
 {% set oa_tag = {'tag': config.custom.open_access_tag} %}
-{% set show_oa = oa_tag in result.data.tags and config.custom.show_open_access %}
+{% set oa_tag_type1 = {'tag': config.custom.open_access_tag, 'type': 1} %}
+{% set oa_tag_type2 = {'tag': config.custom.open_access_tag, 'type': 2} %}
+{% set show_oa = (oa_tag in result.data.tags or oa_tag_type1 in result.data.tags or oa_tag_type2 in result.data.tags) and config.custom.show_open_access %}
 
 {%- block search_result_links %}
     {%- if result.attachments|length and (show_oa or config.kerko.features.results_attachment_links) or result.url|kerko_url_hostname and config.kerko.features.results_url_links %}
