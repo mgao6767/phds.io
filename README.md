@@ -11,6 +11,7 @@ This site is collectively maintained by:
 
 1. [Mingze Gao](https://mingze-gao.com) (Macquarie University)
 2. Haocheng Xu (University of Iowa)
+3. [Jun He](https://www.nhh.no/en/employees/faculty/jun-he/) (NHH Norwegian School of Economics)
 
 ___If you would like to join this effort, please kindly let me know.___
 
