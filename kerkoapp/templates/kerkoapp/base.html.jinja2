@@ -1,5 +1,11 @@
 {% extends "kerko/base.html.jinja2" %}
 
-{%- block favicon %}
-    <link rel="shortcut icon" href="https://mingze-gao.com/favicon.ico">
-{%- endblock favicon %}
+{%- block head %}
+    {{- super() }}
+    <meta property="og:title" content="{{ config.open_graph.og_title | default('PhDs.io') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PhDs.io">
+    <meta property="og:url" content="https://phds.io">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo-color.png') }}">
+    <meta property="og:description" content="{{ config.open_graph.og_description | default('A fast literature search engine.') }}">
+{%- endblock head %}
