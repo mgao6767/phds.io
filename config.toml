@@ -169,4 +169,4 @@ flash_message_path = "flash_message.txt"
 
 [open_graph]
 og_title = "PhDs.io - Knowledge that Transforms"
-og_description = "PhDs.io is a platform dedicated to helping researchers explore high-quality papers in finance, economics, accounting, and related fields. Discover, navigate, and stay updated with the latest developments in academic research."
+og_description = "Navigate high-quality research papers in finance, economics, accounting, and related fields. PhDs.io offers a simplified literature discovery experience."
