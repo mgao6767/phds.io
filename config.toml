@@ -71,8 +71,8 @@ type = "url"
 url = "/"
 
 [kerko.performance]
-whoosh_index_memory_limit = 32
-whoosh_index_processors = 4
+whoosh_index_memory_limit = 256
+whoosh_index_processors = 2
 
 [kerko.zotero]
 
