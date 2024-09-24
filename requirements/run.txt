@@ -22,6 +22,8 @@ click==8.1.7
     # via
     #   flask
     #   kerko
+colorama==0.4.6
+    # via click
 dpath==2.2.0
     # via kerko
 feedparser==6.0.11
@@ -47,8 +49,8 @@ jinja2==3.1.4
     #   flask
     #   flask-babel
     #   kerko
-kerko @ git+https://github.com/whiskyechobravo/kerko.git
-    # via -r requirements/run.in
+kerko @ git+https://github.com/mgao6767/kerko.git
+    # via -r .\requirements\run.in
 markupsafe==2.1.5
     # via
     #   jinja2
