@@ -4,7 +4,7 @@ ZOTERO_LIBRARY_TYPE = "group"
 BABEL_DEFAULT_LOCALE = "en_US"
 BABEL_DEFAULT_TIMEZONE = "Australia/Sydney"
 
-SHOW_PROCESSING_TIME = true
+SHOW_PROCESSING_TIME = false
 
 # Most parameters have a default value. Deleting such parameter from this file
 # will not disable it but merely reset it to its default value.
@@ -14,7 +14,7 @@ SHOW_PROCESSING_TIME = true
 download_attachment_new_window = false
 download_item = true
 download_results = true
-download_results_max_count = 100
+download_results_max_count = 0
 open_in_zotero_app = false
 open_in_zotero_web = false
 print_item = true
