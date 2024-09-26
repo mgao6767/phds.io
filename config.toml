@@ -61,6 +61,11 @@ type = "endpoint"
 endpoint = "kerko.search"
 
 [[kerko.link_groups.navbar]]
+text = "Usage Guide"
+type = "url"
+url = "/usage"
+
+[[kerko.link_groups.navbar]]
 text = "About"
 type = "url"
 url = "/about"

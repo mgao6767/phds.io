@@ -67,6 +67,11 @@ def create_app() -> Flask:
     def about():
         return render_template("kerkoapp/about.html.jinja2")
 
+    # Custom route for the "Usage" page
+    @app.route("/usage")
+    def usage():
+        return render_template("kerkoapp/usage.html.jinja2")
+
     # Custom route for the "robots.txt" file
     @app.route("/robots.txt")
     def robots_txt():

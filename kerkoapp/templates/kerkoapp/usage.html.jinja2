@@ -1,0 +1,86 @@
+{%- set title = _("Usage Guide") %}
+{%- extends config.kerko.templates.layout %}
+
+{%- block navbar_items %}
+    {% for item in config.kerko_composer.link_groups.navbar.get_ordered_links() %}
+    <li class="nav-item {% if item.url == "/usage" %}active{% endif %}">
+        <a class="nav-link" href="{{ item.url }}" {% if item.new_window %}target="_blank" rel="noopener"{% endif %}>{{ item.text }}</a>
+    </li>
+    {% endfor %}
+{%- endblock navbar_items %}
+
+{# This empty block removes the h1 title from the page, thereby using README title. #}
+{%- block content_header %}
+{%- endblock content_header %}
+
+{%- block content_inner %}
+    <h2>Usage Guide</h2>
+    <div class="card px-3 pt-3">
+        <p>This platform supports highly <strong>sophisticated query</strong> capabilities. When combined with <strong>facet search</strong> options, it empowers you to precisely tailor your search criteria and efficiently locate the most relevant and high-quality research materials.</p>
+        <p>As an example, the query <a href="/papers/?all=climate%5E10+AND+(cashflow%5E2+OR+cost%5E1)+AND+NOT+2024"><code>climate^10 AND (cashflow^2 OR cost^1) AND NOT 2024</code></a></p>
+        <ul>
+            <li>searches everywhere, from meta data like title and abstract to full-text documents (if any), for the combination of
+                <ol>
+                    <li><code>climate</code></li>
+                    <li>either <code>cashflow</code> or <code>cost</code></li>
+                    <li>not in 2024</li>
+                </ol>
+            <li>specifies that the importance of <code>climate</code> is 10, the importance of <code>cashflow</code> is 2, and the importance of <code>cost</code> is 1, when computing relevance score.</li>
+        </ul>
+        <p>Next, let's look at some example queries from easy to more advanced ones. You can also freely combine them!</p>
+    </div>
+
+    <h3>Easy Queries</h3>
+    <div class="card px-3 pt-3">
+        <ul>
+        <li>
+            <strong>Diacritic-Aware Author Name Search:</strong><br>
+            <em>Sample Queries:</em> <a href="/papers/?creator=Jensen"><code>Jensen</code></a>, <a href="/papers/?creator=Anthony+Saunders"><code>Anthony Saunders</code></a>, <a href="/papers/?creator=Talis"><code>Tālis</code></a>, and <a href="/papers/?creator=Norden+Lars"><code>Lars Norden</code></a>.<br>
+            <em>Search Scope:</em> In authors or contributors<br>
+            <em>Description:</em> Search for works authored or contributed to by someone. Note that the search is aware of diacritics (accents) so that "<a href="/papers/?creator=Norden+Lars"><code>Lars Norden</code></a>" matches "Lars Nordén". 
+        </li>
+        <li>
+            <strong>Basic Term Search:</strong><br>
+            <em>Sample Queries:</em> <a href="/papers/?all=CEO"><code>CEO</code></a>, <a href="/papers/?all=merger"><code>merger</code></a>, and <a href="/papers/?all=ESG"><code>ESG</code></a>.<br>
+            <em>Search Scope:</em> Everywhere<br>
+            <em>Description:</em> A straightforward search for the term "corporate finance" across all fields and available documents.
+        </li>
+        </ul>
+    </div>
+
+    <h3>Intermediate Queries</h3>
+    <div class="card px-3 pt-3">
+        <ul>
+        <li>
+            <strong>Exact Phrase Search Using Double Quotes:</strong><br>
+            <em>Sample Queries:</em> <a href='/papers/?title="corporate+governance"'><code>"corporate governance"</code></a>.<br>
+            <em>Search Scope:</em> In titles<br>
+            <em>Description:</em> Search for documents that have the exact phrase <code>"corporate governance"</code> in their titles.
+        </li>
+        <li>
+            <strong>Complex Boolean Search and Grouping Using Brackets:</strong><br>
+            <em>Sample Queries:</em> <a href='/papers/?all="capital+structure"+AND+(NOT+merger)'><code>"capital structure" AND (NOT merger)</code></a>.<br>
+            <em>Search Scope:</em> Everywhere<br>
+            <em>Description:</em> Find documents discussing capital structure but exclude those specifically mentioned merger.
+        </li>
+        </ul>
+    </div>
+
+    <h3>Advanced Queries</h3>
+    <div class="card px-3 pt-3">
+        <ul>
+        <li>
+            <strong>Proximity Search:</strong><br>
+            <em>Sample Queries:</em> <a href='/papers/?all="capital+structure+decisions"~3'><code>"capital structure decisions"~3</code></a>.<br>
+            <em>Search Scope:</em> Everywhere<br>
+            <em>Description:</em> Search for documents where the terms <code>capital</code>, <code>structure</code> and <code>decisions</code> appear within three words of each other.
+        </li>
+        <li>
+            <strong>Weighted Term Search:</strong><br>
+            <em>Sample Queries:</em> <a href="/papers/?all=CEO%5E1+female%5E2"><code>CEO^1 female^2</code></a>.<br>
+            <em>Search Scope:</em> Everywhere<br>
+            <em>Description:</em> Prioritize documents where <code>female</code> is 2x as important as <code>CEO</code>.
+        </li>
+        </ul>
+    </div>
+{%- endblock content_inner %}
