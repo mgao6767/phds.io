@@ -1,0 +1,57 @@
+{%- set title = _("Privacy Policy") %}
+{%- extends config.kerko.templates.layout %}
+
+{%- block navbar_items %}
+    {% for item in config.kerko_composer.link_groups.navbar.get_ordered_links() %}
+    <li class="nav-item {% if item.url == "/privacy" %}active{% endif %}">
+        <a class="nav-link" href="{{ item.url }}" {% if item.new_window %}target="_blank" rel="noopener"{% endif %}>{{ item.text }}</a>
+    </li>
+    {% endfor %}
+{%- endblock navbar_items %}
+
+{# This empty block removes the h1 title from the page, thereby using README title. #}
+{%- block content_header %}
+{%- endblock content_header %}
+
+{%- block content_inner %}
+    <h2>Privacy Policy</h2>
+    <div class="card px-3 pt-3">
+      <p>Your privacy is important to us. We do not collect personally identifiable information.</p>
+      <p>Your continued use of our website will be regarded as acceptance of our practices around privacy and personal information.</p>
+    </div>
+    <div class="card px-3 pt-3">
+      <p><strong>Effective Date:</strong> 2024-09-27</p>
+
+      <p>PhDs.io ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy outlines how we collect, use, and safeguard your information when you visit our website, <a href="https://phds.io/" target="_blank">https://phds.io/</a> (the "Site").</p>
+
+      <strong>1. Information We Collect</strong>
+      <p>We only collect information through Google Analytics to understand how visitors interact with our Site. This includes information such as:</p>
+      <ul>
+          <li>IP address: to understand the geographical location of our visitors.</li>
+          <li>Browser type and version: to ensure compatibility and optimize user experience.</li>
+          <li>Operating system: to help us design the Site for various platforms.</li>
+          <li>Pages visited and time spent on the Site: to understand which content is most useful to our users.</li>
+      </ul>
+      <p>No personally identifiable information is collected or stored by us.</p>
+
+      <strong>2. Use of Google Analytics</strong>
+      <p>We use Google Analytics to gather this data. Google Analytics places cookies on your device to collect information on your interaction with the Site. This data helps us improve the Site by understanding user behavior and preferences.</p>
+      <p>Google Analytics processes data according to their privacy policy, which you can review <a href="https://policies.google.com/privacy" target="_blank">here</a>.</p>
+
+      <strong>3. How We Use Your Information</strong>
+      <p>The information collected via Google Analytics is used solely for:</p>
+      <ul>
+          <li>Improving our Site’s content and user experience.</li>
+          <li>Analyzing Site performance and user engagement.</li>
+      </ul>
+      <p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information, as we do not collect any.</p>
+
+      <strong>4. Cookies</strong>
+      <p>Cookies are small files that a site or its service provider transfers to your computer's hard drive through your web browser (if you allow) that enables the site’s or service provider’s systems to recognize your browser and capture and remember certain information.</p>
+      <p>You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies. You do this through your browser settings. If you turn cookies off, some features may be disabled, but it should not affect the overall user experience.</p>
+
+      <strong>5. Third-Party Links</strong>
+      <p>Our Site may contain links to third-party sites. These third-party sites have separate and independent privacy policies. We, therefore, have no responsibility or liability for the content and activities of these linked sites.</p>
+
+    </div>
+{%- endblock content_inner %}

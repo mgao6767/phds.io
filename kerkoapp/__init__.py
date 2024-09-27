@@ -72,6 +72,16 @@ def create_app() -> Flask:
     def usage():
         return render_template("kerkoapp/usage.html.jinja2")
 
+    # Custom route for the "Privacy" page
+    @app.route("/privacy")
+    def privacy():
+        return render_template("kerkoapp/privacy.html.jinja2")
+
+    # Custom route for the "Terms of Service" page
+    @app.route("/terms")
+    def terms():
+        return render_template("kerkoapp/terms.html.jinja2")
+
     # Custom route for the "robots.txt" file
     @app.route("/robots.txt")
     def robots_txt():

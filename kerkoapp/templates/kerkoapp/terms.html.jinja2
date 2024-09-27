@@ -1,0 +1,47 @@
+{%- set title = _("Terms of Service") %}
+{%- extends config.kerko.templates.layout %}
+
+{%- block navbar_items %}
+    {% for item in config.kerko_composer.link_groups.navbar.get_ordered_links() %}
+    <li class="nav-item {% if item.url == "/privacy" %}active{% endif %}">
+        <a class="nav-link" href="{{ item.url }}" {% if item.new_window %}target="_blank" rel="noopener"{% endif %}>{{ item.text }}</a>
+    </li>
+    {% endfor %}
+{%- endblock navbar_items %}
+
+{# This empty block removes the h1 title from the page, thereby using README title. #}
+{%- block content_header %}
+{%- endblock content_header %}
+
+{%- block content_inner %}
+    <h2>Terms of Service</h2>
+    <div class="card px-3 pt-3">
+
+    <p><strong>Effective Date:</strong> 2024-09-27</p>
+
+    <p>Welcome to PhDs.io. By accessing or using our service, you agree to be bound by these Terms of Service ("Terms").</p>
+
+    <strong>1. Acceptance of Terms</strong>
+    <p>By accessing PhDs.io, you confirm that you have read, understood, and agree to be bound by these Terms, including any future modifications. These Terms apply to all visitors, users, and others who access or use the service.</p>
+
+    <strong>2. Fair Use and Rate Limiting</strong>
+    <p>PhDs.io imposes a rate limit to ensure fair use of the service. Users are expected to adhere to these limits and use the service in a manner that does not disrupt or negatively impact other users. Abuse of the service or exceeding rate limits may result in temporary or permanent suspension of access.</p>
+
+    <strong>3. Service Provision</strong>
+    <p>PhDs.io is provided "as is," without warranties of any kind, either express or implied. We do not guarantee that the service will be uninterrupted, error-free, or free of harmful components. While continuous improvements are made to the service, there may be errors or inaccuracies. Your use of the service is at your own risk.</p>
+
+    <strong>4. Copyright</strong>
+    <p>PhDs.io collects and displays publicly available information, including Open Access (OA) articles, only when such use is explicitly permitted by applicable licenses (e.g., Creative Commons licenses that allow redistribution). The research papers and other materials featured on this site remain the intellectual property of their respective authors and publishers. PhDs.io does not claim ownership of any such content but facilitates access to it under the terms of these licenses.</p>
+    <p>Users are responsible for understanding and complying with the terms of the respective licenses under which content is made available. Unauthorized reproduction, distribution, or use of copyrighted material without permission from the owner is prohibited and may result in legal consequences. If you believe that your copyrighted material has been displayed on PhDs.io without appropriate authorization, please contact us, and we will take prompt action to resolve the issue.</p>
+
+    <strong>5. Privacy and Data Collection</strong>
+    <p>Please see our <a href="/privacy">Privacy Policy</a>.</p>
+
+    <strong>6. Modifications to the Service or Terms</strong>
+    <p>We reserve the right to modify or terminate the service at any time, with or without notice. We may also update these Terms from time to time. Continued use of the service after any such changes shall constitute your consent to those changes. It is your responsibility to review the Terms periodically.</p>
+
+    <strong>7. Limitation of Liability</strong>
+    <p>To the fullest extent permitted by law, PhDs.io shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the service; (ii) any conduct or content of any third party on the service; (iii) any content obtained from the service; and (iv) unauthorized access, use, or alteration of your transmissions or content.</p>
+
+    </div>
+{%- endblock content_inner %}

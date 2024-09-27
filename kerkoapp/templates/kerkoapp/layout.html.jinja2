@@ -43,13 +43,36 @@
 {%- endblock header_inner %}
 
 {%- block footer_inner %}
-    <div class="text-center pt-3 pb-3">
-        {{ _('{site} is developed by {adrian} from {mqbs}, powered by {zotero} and {kerko}.').format(
-            site='<a href="/">PhDs.io</a>',
-            adrian='<a href="https://mingze-gao.com">Mingze Gao</a>',
-            mqbs='<a href="https://www.mq.edu.au/macquarie-business-school">Macquarie Business School</a>',
-            zotero='<a href="https://zotero.org">Zotero</a>',
-            kerko='<a href="https://github.com/whiskyechobravo/kerko">Kerko</a>'
-            ) }}
+    <div class="container pt-3 pb-2">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="pb-2">
+                {{ _('{site} is developed by {adrian} from {mqbs}.').format(
+                    site='<a href="/">PhDs.io</a>',
+                    adrian='<a href="https://mingze-gao.com">Mingze Gao</a>',
+                    mqbs='<a href="https://www.mq.edu.au/macquarie-business-school">Macquarie Business School</a>',
+                    zotero='<a href="https://zotero.org">Zotero</a>',
+                    kerko='<a href="https://github.com/mgao6767/kerko">Kerko</a>'
+                    ) }}
+                </p>
+            </div>
+            <div class="col-md-3">
+                <h5>About</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/about">About</a></li>
+                </ul>
+                <h5>Resources</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/usage">Usage Guide</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Legal</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 {%- endblock footer_inner %}
