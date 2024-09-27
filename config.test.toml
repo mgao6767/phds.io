@@ -1,10 +1,11 @@
-ZOTERO_LIBRARY_ID = "5650543"
+# phds.io.test
+ZOTERO_LIBRARY_ID = "5673591"
 ZOTERO_LIBRARY_TYPE = "group"
 
 BABEL_DEFAULT_LOCALE = "en_US"
 BABEL_DEFAULT_TIMEZONE = "Australia/Sydney"
 
-SHOW_PROCESSING_TIME = false
+SHOW_PROCESSING_TIME = true
 
 # Most parameters have a default value. Deleting such parameter from this file
 # will not disable it but merely reset it to its default value.
@@ -14,7 +15,7 @@ SHOW_PROCESSING_TIME = false
 download_attachment_new_window = false
 download_item = true
 download_results = true
-download_results_max_count = 0
+download_results_max_count = 100
 open_in_zotero_app = false
 open_in_zotero_web = false
 print_item = true
@@ -39,7 +40,6 @@ max_days = 0
 [kerko.meta]
 
 title = "PhDs.io"
-google_analytics_id = "G-TFJCZ2EWMZ"
 
 [kerko.pagination]
 
@@ -61,11 +61,6 @@ type = "endpoint"
 endpoint = "kerko.search"
 
 [[kerko.link_groups.navbar]]
-text = "Usage Guide"
-type = "url"
-url = "/usage"
-
-[[kerko.link_groups.navbar]]
 text = "About"
 type = "url"
 url = "/about"
@@ -76,8 +71,8 @@ type = "url"
 url = "/"
 
 [kerko.performance]
-whoosh_index_memory_limit = 1024
-whoosh_index_processors = 1
+whoosh_index_memory_limit = 256
+whoosh_index_processors = 2
 
 [kerko.zotero]
 
@@ -94,67 +89,41 @@ tag_exclude_re = '^_'
 
 [kerko.search]
 
-fulltext = true
+fulltext = false
 whoosh_language = "en"
 
 
 [kerko.facets]
 
-[kerko.facets.for]
-type = "tag_based_facet"
-filter_key = "field-of-research"
-title = "Field of Research"
-enabled = true
-weight = 40
-initial_limit = 10
-initial_limit_leeway = 2
-sort_by = ["count"]
-tag_include_re = '\[Field of Research\] (?P<kerko>.*)'
-tag_exclude_re = "^_"
-
 [kerko.facets.journals]
 enabled = true
 type = "collection"
-collection_key = "ZT72UUC6"
+collection_key = "54VXDCHX"
 filter_key = "journal"
 title = "Journals"
 weight = 50
-initial_limit = 20
+initial_limit = 10
 initial_limit_leeway = 2
 
-[kerko.facets.year]
-enabled = true
-title = "Year"
-weight = 70
-initial_limit = 5
-initial_limit_leeway = 2
-sort_by = ["label"]
-
-# This type is added to allow building facets based on tags
-# Must set `tag_include_re` and `tag_exclude_re`
-[kerko.facets.ranking]
-type = "tag_based_facet"
+[kerko.facets.rankings]
+enabled = false
+type = "collection"
+collection_key = "Z76F9NJW"
 filter_key = "ranking"
 title = "Ranking"
-enabled = true
-weight = 90
+weight = 65
 initial_limit = 10
 initial_limit_leeway = 2
-sort_by = ["label"]
-tag_include_re = '\[Ranking\] (?P<kerko>.*)'
-tag_exclude_re = "^_"
 
-[kerko.facets.open_access]
-type = "tag_based_facet"
-filter_key = "open-access"
+[kerko.facets.oa]
+enabled = false
+type = "collection"
+collection_key = "JKQ8PAV4"
+filter_key = "oa"
 title = "Open Access"
-enabled = true
-weight = 91
+weight = 75
 initial_limit = 10
 initial_limit_leeway = 2
-sort_by = ["label"]
-tag_include_re = '\[(?P<kerko>Open Access)\]'
-tag_exclude_re = "^_"
 
 [kerko.facets.tag]
 enabled = true
@@ -165,6 +134,17 @@ sort_by = ["count"]
 
 [kerko.facets.item_type]
 enabled = false
+weight = 200
+initial_limit = 0
+initial_limit_leeway = 2
+sort_by = ["label"]
+
+[kerko.facets.year]
+enabled = true
+weight = 70
+initial_limit = 5
+initial_limit_leeway = 2
+sort_by = ["label"]
 
 [kerko.templates]
 base = "kerkoapp/base.html.jinja2"
