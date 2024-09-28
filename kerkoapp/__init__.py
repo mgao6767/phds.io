@@ -62,6 +62,12 @@ def create_app() -> Flask:
     register_blueprints(app)
     register_errorhandlers(app)
 
+    # Custom route for the "favicon.ico" file
+    @app.route('/favicon.ico/')
+    @app.route('/favicon.ico')
+    def favicon():
+        return app.send_static_file("favicon.ico")
+
     # Custom route for the "About" page
     @app.route("/about")
     def about():
