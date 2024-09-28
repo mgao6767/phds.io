@@ -14,7 +14,7 @@ SHOW_PROCESSING_TIME = false
 download_attachment_new_window = false
 download_item = true
 download_results = true
-download_results_max_count = 0
+download_results_max_count = 999
 open_in_zotero_app = false
 open_in_zotero_web = false
 print_item = true
@@ -186,7 +186,7 @@ ft50_tag = "[Ranking] FT50"
 utd24_tag = "[Ranking] UTD24"
 abdc_tag = "[Ranking] ABDC-A*" # Only tag A*
 # Flash message / Announcement
-show_flash_message = true
+show_flash_message = false
 flash_message_path = "flash_message.txt"
 
 [open_graph]
