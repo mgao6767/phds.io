@@ -9,6 +9,35 @@ SHOW_PROCESSING_TIME = false
 # Most parameters have a default value. Deleting such parameter from this file
 # will not disable it but merely reset it to its default value.
 
+# Default to "metadata"
+[kerko.scopes]
+
+    [kerko.scopes.all]
+    enabled = true
+    weight = 999
+
+    [kerko.scopes.creator]
+    enabled = true
+    weight = 100
+
+    [kerko.scopes.title]
+    enabled = true
+    weight = 200
+
+    [kerko.scopes.pubyear]
+    enabled = true
+    weight = 300
+
+    [kerko.scopes.metadata]
+    enabled = true
+    weight = 0
+
+    [kerko.scopes.fulltext]
+    enabled = true
+    weight = 500
+
+
+
 [kerko.features]
 
 download_attachment_new_window = false
