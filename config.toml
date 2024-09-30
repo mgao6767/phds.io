@@ -115,7 +115,8 @@ csl_style = "apa-no-doi-no-issue"
 locale = "en-US"
 item_include_re = ''
 item_exclude_re = ''
-child_include_re = ''
+# Indexing OA documents
+child_include_re = '\[Open Access\]'
 child_exclude_re = '^_'
 attachment_mime_types = ["application/pdf"]
 tag_include_re = '\[Topic\] (?P<kerko>.*)'
