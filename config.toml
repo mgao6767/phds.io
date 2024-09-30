@@ -14,7 +14,7 @@ SHOW_PROCESSING_TIME = false
 
     [kerko.scopes.all]
     enabled = true
-    weight = 999
+    weight = 0
 
     [kerko.scopes.creator]
     enabled = true
@@ -30,7 +30,7 @@ SHOW_PROCESSING_TIME = false
 
     [kerko.scopes.metadata]
     enabled = true
-    weight = 0
+    weight = 400
 
     [kerko.scopes.fulltext]
     enabled = true
