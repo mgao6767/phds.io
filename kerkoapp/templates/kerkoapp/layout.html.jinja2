@@ -7,16 +7,6 @@
     {%- endblock phdsio_css %}
 {%- endblock styles %}
 
-{%- block navbar_content %}
-    <div id="navbar-content" class="collapse navbar-collapse">
-        <ul class="navbar-nav font-weight-normal">
-            {%- block navbar_items %}
-                {{- super() }}
-            {%- endblock navbar_items %}
-        </ul>
-    </div>
-{%- endblock navbar_content %}
-
 {%- block header_inner %}
     {%- block phdsio_header %}
         {%- if config.custom.show_macquarie_logo %}
