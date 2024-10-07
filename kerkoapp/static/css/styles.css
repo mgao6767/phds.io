@@ -89,10 +89,14 @@ body {
 }
 
 .search-item a:not(.btn-link) {
-  color: #373a36; /* MQ Charcoal */
+  color: #3048bf;
+  font-size: medium;
 }
 .search-item p.search-abstract {
   font-size: 0.9rem;
+}
+.search-item i {
+  font-weight: bold;
 }
 
 .btn-primary {
