@@ -55,7 +55,7 @@ relations_sort = "author_asc"
 results_abstracts = true
 results_abstracts_max_length = 0
 results_abstracts_max_length_leeway = 0
-results_abstracts_toggler = true
+results_abstracts_toggler = false
 results_attachment_links = false
 results_url_links = true
 
