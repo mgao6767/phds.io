@@ -189,9 +189,9 @@ tag_exclude_re = "^_"
 [kerko.facets.tag]
 enabled = true
 weight = 100
-initial_limit = 10
+initial_limit = 20
 initial_limit_leeway = 2
-sort_by = ["count"]
+sort_by = ["label"]
 
 [kerko.facets.item_type]
 enabled = false
